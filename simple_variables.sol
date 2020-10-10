@@ -1,6 +1,6 @@
 pragma solidity ^0.6.4;
     //This sets the actual name of the contract
-contract BIMVariables{
+contract simpl_variables{
         //These are examples of the variables we will use in the contracts.
         //Boolean Variables 
     bool public myBool;
