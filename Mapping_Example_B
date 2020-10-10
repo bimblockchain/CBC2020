@@ -1,16 +1,18 @@
-pragma solidity ^0.6.0;
+pragma solidity ^0.5.13;
 
-contract mappingstruct{
+contract MappingStructExample {
     
-    mapping(address => uint) public balanceReceived;
+    //this mapping associates an ETH with an integer
+    //it follows a structure of: mapping(key => value) properties name;
+    mapping(address => uint) public balanceReceived; 
     
     function getBalance() public view returns(uint) {
         return address(this).balance;
         
     }
-    
+    //this credits the account that sends ETH with the amount they sent (like a bank)
     function sendMoney() public payable {
-        balanceReceived[msg.sender] += msg.value;
+        balanceReceived[msg.sender] += msg.value;  
         
     }
     
@@ -18,6 +20,5 @@ contract mappingstruct{
         uint balanceToSend = balanceReceived[msg.sender];
         balanceReceived[msg.sender] = 0;
         _to.transfer(balanceToSend);
-        
     }
 }
